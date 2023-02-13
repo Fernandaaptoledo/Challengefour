@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 public class CarDtoRequest {
 
 
-    private Long idChassis;
+    private Long Chassis;
 
 
     private String name;

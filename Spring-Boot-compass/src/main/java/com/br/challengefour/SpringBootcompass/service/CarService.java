@@ -9,32 +9,37 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
+
 @Service
 public class CarService {
 
-    @Autowired
+    @Autowired(required = false)
     private ModelMapper modelMapper;
 
-    @Autowired
+    @Autowired(required = false)
     private CarRepository carRepository;
 
 
     private Object carEntity;
 
 
-    private Long idChassis;
+    private Long Chassis;
 
 
-    public CarDtoResponse save(CarDtoRequest request){
+    public CarDtoResponse save(CarDtoRequest request) {
         CarEntity carEntity = modelMapper.map(request, CarEntity.class);
         carEntity.save(carEntity);
         CarDtoResponse carDtoResponse = modelMapper.map(carEntity, CarDtoResponse.class);
         return carDtoResponse;
 
     }
-    public CarDtoResponse getById(Long idCassi) {
-        carRepository.findById(idCassi).orElseThrow(() -> new CarNotFoundException("car with id: " + idChassis + "not found"));
+
+
+    public CarDtoResponse getById(Long Chassis) {
+        carRepository.findById(Chassis).orElseThrow(() -> new CarNotFoundException("car with id: " + Chassis + "not found"));
         return modelMapper.map(carEntity, CarDtoResponse.class);
 
     }
+
 }

@@ -4,6 +4,8 @@ import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Data
 @Entity
@@ -12,7 +14,9 @@ public class CarEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idChassis;
+    @NotNull
+    @NotEmpty
+    private Long Chassis;
 
     @NotBlank
     @Column(name = "NAME")
@@ -30,7 +34,9 @@ public class CarEntity {
     @Column(name = "FABRICATION_YEAR")
     private String fabricationYear;
 
-    public void save(CarEntity carEntity) {
 
+
+    public void save(CarEntity carEntity) {
     }
+
 }
