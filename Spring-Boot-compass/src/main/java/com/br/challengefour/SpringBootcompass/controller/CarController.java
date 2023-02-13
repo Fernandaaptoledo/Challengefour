@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping(value="/api")
+@RequestMapping(value="")
 public class CarController {
 
     @Autowired
@@ -22,9 +22,9 @@ public class CarController {
         return ResponseEntity.ok(carDtoResponse);
     }
 
-    @GetMapping("/car/get/{idCassi}")
-    public ResponseEntity<CarDtoResponse> getById(@PathVariable Long idCassi){
-        CarDtoResponse carDtoResponse = carService.getById(idCassi);
+    @GetMapping("/car/get/{idChassis}")
+    public ResponseEntity<CarDtoResponse> getById(@PathVariable Long idChassis){
+        CarDtoResponse carDtoResponse = carService.getById(idChassis);
         return ResponseEntity.ok(carDtoResponse);
     }
 }

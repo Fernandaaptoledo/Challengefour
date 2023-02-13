@@ -22,7 +22,7 @@ public class CarService {
     private Object carEntity;
 
 
-    private Long idCassi;
+    private Long idChassis;
 
 
     public CarDtoResponse save(CarDtoRequest request){
@@ -33,7 +33,7 @@ public class CarService {
 
     }
     public CarDtoResponse getById(Long idCassi) {
-        carRepository.findById(idCassi).orElseThrow(() -> new CarNotFoundException("car with id: " + idCassi + "not found"));
+        carRepository.findById(idCassi).orElseThrow(() -> new CarNotFoundException("car with id: " + idChassis + "not found"));
         return modelMapper.map(carEntity, CarDtoResponse.class);
 
     }
