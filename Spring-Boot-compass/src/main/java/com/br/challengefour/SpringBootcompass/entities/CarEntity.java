@@ -11,7 +11,7 @@ public class CarEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idcCassi;
+    private Long idCassi;
 
     @Column(name = "NAME")
     private String name;
